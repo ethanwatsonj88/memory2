@@ -22,7 +22,6 @@ class Starter extends React.Component {
 	}
 
 	hideElement(index, firstChoiceIndex) {
-		console.log("heredafdd");
 		const isHidden1 = this.state.isHidden.slice();
 		isHidden1[index] = true;
 		isHidden1[firstChoiceIndex] = true;
@@ -186,41 +185,41 @@ class Starter extends React.Component {
 		let tiles = this.state.board;
 		return(
 			<div className="everything">
-			<div className="tiles">
-			<div className="firstRow">
-				{this.renderTile(0)}
-				{this.renderTile(1)}
-				{this.renderTile(2)}
-				{this.renderTile(3)}
-			</div>
-			<div className="secondRow">
-				{this.renderTile(4)}
-				{this.renderTile(5)}
-				{this.renderTile(6)}
-				{this.renderTile(7)}
-			</div>
-			<div className="thirdRow">
-				{this.renderTile(8)}
-				{this.renderTile(9)}
-				{this.renderTile(10)}
-				{this.renderTile(11)}
-			</div>
-			<div className="fourthRow">
-				{this.renderTile(12)}
-				{this.renderTile(13)}
-				{this.renderTile(14)}
-				{this.renderTile(15)}
-			</div>
-			</div>
-			<div className="score">
-				{this.renderScore()}
-			</div>
-			<div className="reset">
-				{this.renderReset()}
-			</div>
-			<div className="gameOver">
-				{this.renderGameOver()}
-			</div>
+				<div className="tiles">
+				<div className="firstRow">
+					{this.renderTile(0)}
+					{this.renderTile(1)}
+					{this.renderTile(2)}
+					{this.renderTile(3)}
+				</div>
+				<div className="secondRow">
+					{this.renderTile(4)}
+					{this.renderTile(5)}
+					{this.renderTile(6)}
+					{this.renderTile(7)}
+				</div>
+				<div className="thirdRow">
+					{this.renderTile(8)}
+					{this.renderTile(9)}
+					{this.renderTile(10)}
+					{this.renderTile(11)}
+				</div>
+				<div className="fourthRow">
+					{this.renderTile(12)}
+					{this.renderTile(13)}
+					{this.renderTile(14)}
+					{this.renderTile(15)}
+				</div>
+				</div>
+				<div className="score">
+					{this.renderScore()}
+				</div>
+				<div className="reset">
+					{this.renderReset()}
+				</div>
+				<div className="gameOver">
+					{this.renderGameOver()}
+				</div>
 			</div>
 		);
 	}
@@ -267,8 +266,7 @@ function Tile(props) {
 		currValue = props.value;
 	}
 	return (
-		<button 
-			className="tile" onClick={ props.onClick }>
+		<button className="tile" onClick={ props.onClick }>
 			{currValue}
 		</button>
 	);

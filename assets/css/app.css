@@ -6,6 +6,10 @@
     padding-top: 10ex;
     text-align: center;
 }
-
-.tile {
+button {
+	vertical-align:top;
+	width: 50px;
+}
+.reset {
+	width: 100px;
 }
