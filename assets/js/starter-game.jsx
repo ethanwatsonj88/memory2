@@ -122,11 +122,14 @@ class Starter extends React.Component {
 		// is hidden all true
 		// disabled is false.
 		// do not use constructor because we do not want random tiles.
+		// UPDATE: we do want to randomize tiles.
+		const tiles1 = this.initializeValues();
 		const isHidden1 = Array(16).fill(true);
 		let firstChoiceIndex1 = null;
 		let disabled1 = false;
 		let score1 = 0;
 		let state1 = _.assign({}, this.state, {
+			tiles: tiles1,
 			isHidden: isHidden1,
             firstChoiceIndex: firstChoiceIndex1,
             disabled: disabled1,
@@ -185,6 +188,16 @@ class Starter extends React.Component {
 		let tiles = this.state.board;
 		return(
 			<div className="everything">
+				<div className="title">Memory Game</div>
+				<div className="rules">
+					<h1>Rules</h1>
+					<ol>
+						<li>Choose a first tile.</li>
+						<li>Select a second tile.</li>
+						<li>If these tiles match, they will remain unhidden.</li>
+						<li>Try to uncover all tiles to win! :)</li>
+					</ol>
+				</div>
 				<div className="tiles">
 				<div className="firstRow">
 					{this.renderTile(0)}
