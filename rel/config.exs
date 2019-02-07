@@ -22,8 +22,6 @@ use Mix.Releases.Config,
 # when building in that environment, this combination of release
 # and environment configuration is called a profile
 
-cookie = String.to_atom(Base.encode16(:crypto.strong_rand_bytes(32)))
-
 environment :dev do
   # If you are running Phoenix, you should make sure that
   # server: true is set and the code reloader is disabled,
@@ -33,13 +31,13 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: cookie
+  set cookie: :"QPWLW$MMnr9=mI{V:6L7YTBdHCoEQwskzoKNFtvp}s:kdgj|Ui.XyKLFqAL?baD~"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: cookie
+  set cookie: :"oW5jJ/l7Kl)rY4@L4a:72j7`5UsW@L]LX>KI$3EdS^JHu*Tr|J1U08chUzfb[>^>"
   set vm_args: "rel/vm.args"
 end
 
