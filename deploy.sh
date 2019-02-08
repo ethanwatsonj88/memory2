@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export MIX_ENV=prod
+export MIX_ENV=prod mix compile
 export PORT=4792
 export NODEBIN=`pwd`/assets/node_modules/.bin
 export PATH="$PATH:$NODEBIN"
@@ -13,7 +13,7 @@ mkdir -p priv/static
 mix deps.get
 mix compile
 (cd assets && npm install)
-(cd assets && webpack --mode production)
+(cd assets && webpack --mode production && cd ..)
 mix phx.digest
 
 echo "Generating release..."

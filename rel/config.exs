@@ -43,13 +43,13 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"Sx>E<yDDfEyw<}yYY]=2oaTte[1q]x,h@:@~uUDMp(GjauocA_$JA9.nwt/tY3iR"
+  set cookie: String.to_atom(get_secret.("cookie"))
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: : String.to_atom(get_secret.("cookie"))
+  set cookie: String.to_atom(get_secret.("cookie"))
   set vm_args: "rel/vm.args"
 end
 
