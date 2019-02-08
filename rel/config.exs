@@ -16,6 +16,18 @@ use Mix.Releases.Config,
 # For a full list of config options for both releases
 # and environments, visit https://hexdocs.pm/distillery/config/distillery.html
 
+get_secret = fn name ->
+  # Secret generation hack by Nat Tuck for CS4550
+  # This function is dedicated to the public domain.
+  base = Path.expand("~/.config/phx-secrets")
+  File.mkdir_p!(base)
+  path = Path.join(base, name)
+  unless File.exists?(path) do
+    secret = Base.encode16(:crypto.strong_rand_bytes(32))
+    File.write!(path, secret)
+  end
+  String.trim(File.read!(path))
+end
 
 # You may define one or more environments in this file,
 # an environment's settings will override those of a release
@@ -31,13 +43,13 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"QPWLW$MMnr9=mI{V:6L7YTBdHCoEQwskzoKNFtvp}s:kdgj|Ui.XyKLFqAL?baD~"
+  set cookie: :"Sx>E<yDDfEyw<}yYY]=2oaTte[1q]x,h@:@~uUDMp(GjauocA_$JA9.nwt/tY3iR"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"oW5jJ/l7Kl)rY4@L4a:72j7`5UsW@L]LX>KI$3EdS^JHu*Tr|J1U08chUzfb[>^>"
+  set cookie: : String.to_atom(get_secret.("cookie"))
   set vm_args: "rel/vm.args"
 end
 

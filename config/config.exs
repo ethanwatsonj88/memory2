@@ -8,7 +8,8 @@ use Mix.Config
 # Configures the endpoint
 config :memory, MemoryWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "3tCdo/km2wQIFrGejdqPGn5R76pJSeSpToj4wj7MofASTRPjxx0ud8/y4i5K8si4",
+  #old key
+	secret_key_base: "3tCdo/km2wQIFrGejdqPGn5R76pJSeSpToj4wj7MofASTRPjxx0ud8/y4i5K8si4",
   render_errors: [view: MemoryWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Memory.PubSub,
            adapter: Phoenix.PubSub.PG2]

@@ -2,5 +2,30 @@
 	<div class="column">
 		<h1 id="index-page">Join a Game</h1>
 		<p><a href="/game/demo">Join "demo"</a></p>
+		<p>Type in a game name.</p>
+		<p>If that game exists, you will join it. Otherwise, a new game will be started.</p>
+		<input id="gameName" type="text" name="gamename"><br>
+		<button id="submitButton">Go to game</button>
 	</div>
 </div>
+
+<script>
+	(function () {
+    "use strict";
+  
+    function init() {
+      const submit = document.getElementById("submitButton");
+      submit.addEventListener("click", function() {
+        const gameName = document.getElementById("gameName");
+        const nameString = gameName.value;
+        goToGame(nameString);
+      });
+    }
+	
+ 		function goToGame(nameString) {
+	  	window.location.replace("/game/" + nameString);  
+		}
+ 
+		document.addEventListener("DOMContentLoaded", init, false);
+	})();
+</script>
